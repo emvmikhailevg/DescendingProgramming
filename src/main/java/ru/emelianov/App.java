@@ -1,8 +1,8 @@
 package ru.emelianov;
 
 /**
- * Hello world!
- *
+ * Main class
+ * @author Mikhail Emelianov
  */
 public class App 
 {
