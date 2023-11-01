@@ -6,12 +6,7 @@ package ru.emelianov.oop;
  * @author mikhailemv
  * @since 02.11.2023
  */
-public interface Person {
-
-    /**
-     * Текущее местоположение
-     */
-    Position getPosition();
+public interface Person extends Positioned {
 
     /**
      * Пройти до указанного места из текущего местоположения
@@ -19,5 +14,4 @@ public interface Person {
      * @param destination место назначения
      */
     void walk(Position destination);
-    void useCar(Position destination);
 }
