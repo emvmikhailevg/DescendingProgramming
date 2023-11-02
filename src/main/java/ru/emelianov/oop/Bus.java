@@ -1,13 +1,13 @@
 package ru.emelianov.oop;
 
 /**
- * Класс машины
+ * Класс автобуса
  * @author mikhailemv
  * @since 02.11.2023
  */
-public class Car implements Transport {
+public class Bus implements Transport {
 
-    public Car(Person person) {}
+    public Bus(String number, Person person) {}
 
     @Override
     public Position getPosition() { return null; }
