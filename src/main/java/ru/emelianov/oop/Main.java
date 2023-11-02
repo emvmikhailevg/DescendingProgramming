@@ -1,5 +1,8 @@
 package ru.emelianov.oop;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * <b>Задача 2:</b><br>
  * Добраться человеку до заданного места.<br>
@@ -38,11 +41,16 @@ public class Main {
      * на любом, заранее определённом транспорте
      */
     public static void moveTo(Person person, Position destination) {
-        Transport transport = new Transport();
-        person.walk(transport.getPosition());
-        transport.sitIn(person);
-        transport.moveTo(destination);
-        transport.leaveTransport(person);
+        List<Transport> allTransports = Arrays.asList(
+                new Car(person), new Bus("43", person), new Bus("50", person));
+        for (int i = 0; i < allTransports.size(); i++) {
+            Transport currentTransport = allTransports.get(i);
+            person.walk(currentTransport.getPosition());
+            currentTransport.sitIn(person);
+            Position nextPosition = allTransports.size() - 1 > i ? allTransports.get(i + 1).getPosition() : destination;
+            currentTransport.moveTo(nextPosition);
+            currentTransport.leaveTransport(person);
+        }
         person.walk(destination);
         assert person.getPosition() == destination;
     }
